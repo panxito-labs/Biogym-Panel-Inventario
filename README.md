@@ -92,15 +92,3 @@ Sí se aplican **cabeceras de seguridad** (CSP, `X-Frame-Options`, HSTS, etc.) v
 |------------|-----|
 | Francisco Correa | Jefe de Proyecto / Diseñador UI UX / webmaster |
 | Aukin Carilao | Diseñador UI UX / Desarrollador frontend |
-
----
-
-### Etapas del proyecto (según la rúbrica del curso)
-
-| Etapa | Estado |
-|-------|--------|
-| Definición de equipo y tema | ✔ hecho |
-| Planificación y requerimientos | pendiente |
-| Wireframe | pendiente |
-| Desarrollo | ✔ prototipo funcional |
-| Entrega final | pendiente |
