@@ -78,17 +78,20 @@ Sí se aplican **cabeceras de seguridad** (CSP, `X-Frame-Options`, HSTS, etc.) v
 
 ---
 
-## Equipo y roles
+## Especificación de Requisitos de Software (ERS)
+
+| Campo | Valor |
+|-------|-------|
+| **Equipo** | Aukin Carilao – Francisco Correa |
+| **Cliente** | Biogymstore |
+| **Curso** | Interfaz de usuario – sección 1 |
+| **Fecha** | 15-10-2026 |
+| **Versión** | 1.0 |
 
 | Integrante | Rol |
 |------------|-----|
-| Francisco Correa | Jefe de Proyecto · Diseñador UI/UX · Webmaster |
-| Aukin Carilao | Diseñador UI/UX · Desarrollador frontend |
-
-- **Cliente:** BioGymStore
-- **Curso:** Interfaz de Usuario — sección 1
-- **Fecha:** 15-10-2026
-- **Versión:** 1.0
+| Francisco Correa | Jefe de Proyecto / Diseñador UI UX / webmaster |
+| Aukin Carilao | Diseñador UI UX / Desarrollador frontend |
 
 ---
 
