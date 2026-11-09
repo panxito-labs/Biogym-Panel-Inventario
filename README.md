@@ -11,6 +11,12 @@ múltiples bodegas, con registro de ingresos y traslados.
 
 ---
 
+### Sitio en línea
+
+🔗 **https://panxito-labs.github.io/Biogym-Panel-Inventario/**
+
+---
+
 ### Acceso de demostración
 
 | Campo | Valor |
