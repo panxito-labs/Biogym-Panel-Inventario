@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Dashboard | BioGymStore</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="dashboard">
+
+  <!-- NAVBAR (componente Navbar de Bootstrap) -->
+  <nav id="mainNav" class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="dashboard.html">
+        <img src="img/logo.png" alt="BioGym Store" class="brand-logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Abrir menú">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="inventario.html">Inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="ingreso-stock.html">Ingresar Stock</a></li>
+          <li class="nav-item"><a class="nav-link" href="traslado.html">Traslado</a></li>
+          <li class="nav-item"><a class="nav-link" href="proveedores.html">Proveedores</a></li>
+        </ul>
+        <div class="user-badge">
+          <span class="avatar js-user-initials">--</span>
+          <div class="user-info d-none d-sm-flex">
+            <span class="user-name js-user-name">--</span>
+            <span class="user-role js-user-role">--</span>
+          </div>
+          <button id="btnLogout" class="btn-logout">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container py-4">
+
+    <!-- Encabezado de sección -->
+    <section class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+      <div>
+        <p class="greeting-sub">Hola, trabajador</p>
+        <h1 class="greeting-title">Panel de <span class="text-accent">Stock</span></h1>
+      </div>
+      <a href="ingreso-stock.html" class="btn btn-accent">+ Nuevo producto</a>
+    </section>
+
+    <!-- KPIs (grid de Bootstrap: row + row-cols) -->
+    <section class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-4" aria-label="Indicadores principales">
+      <div class="col">
+        <article class="card h-100 p-3">
+          <span class="kpi-label">Total productos</span>
+          <span class="kpi-value text-accent" id="kpiProductos">–</span>
+          <span class="kpi-sub">en catálogo</span>
+        </article>
+      </div>
+      <div class="col">
+        <article class="card h-100 p-3">
+          <span class="kpi-label">Unidades en stock</span>
+          <span class="kpi-value" id="kpiUnidades">–</span>
+          <span class="kpi-sub">en todas las bodegas</span>
+        </article>
+      </div>
+      <div class="col">
+        <article class="card h-100 p-3">
+          <span class="kpi-label">Alertas de stock</span>
+          <span class="kpi-value" id="kpiAlertas">–</span>
+          <span class="kpi-sub">productos en riesgo</span>
+        </article>
+      </div>
+      <div class="col">
+        <article class="card h-100 p-3">
+          <span class="kpi-label">Bodegas activas</span>
+          <span class="kpi-value" id="kpiBodegas">–</span>
+          <span class="kpi-sub">ubicaciones registradas</span>
+        </article>
+      </div>
+    </section>
+
+    <div class="row g-3 mb-4">
+      <!-- Accesos rápidos -->
+      <section class="col-lg-8">
+        <h2 class="section-title mb-3">Accesos rápidos</h2>
+        <div id="quickAccess" class="row row-cols-1 row-cols-sm-2 g-3"></div>
+      </section>
+
+      <!-- Alertas de stock -->
+      <section class="col-lg-4">
+        <h2 class="section-title mb-3">Alertas de stock</h2>
+        <div class="card p-3">
+          <div id="alertsList" class="d-flex flex-column gap-2 scroll-y"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Movimientos recientes -->
+    <section>
+      <h2 class="section-title mb-3">Movimientos recientes</h2>
+      <div class="card p-3">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Producto</th>
+                <th>Tipo</th>
+                <th>Origen / Destino</th>
+                <th class="text-end">Unidades</th>
+              </tr>
+            </thead>
+            <tbody id="recentMovements"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="app-footer text-center mt-4">
+      BioGymStore — Sistema interno de gestión de stock · Uso exclusivo del personal autorizado
+    </footer>
+  </main>
+
+  <script src="vendor/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+</body>
+</html>

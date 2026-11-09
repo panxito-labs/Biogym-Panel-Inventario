@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Ingresar Stock | BioGymStore</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ingreso-stock">
+
+  <!-- NAVBAR -->
+  <nav id="mainNav" class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="dashboard.html">
+        <img src="img/logo.png" alt="BioGym Store" class="brand-logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Abrir menú">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="inventario.html">Inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="ingreso-stock.html">Ingresar Stock</a></li>
+          <li class="nav-item"><a class="nav-link" href="traslado.html">Traslado</a></li>
+          <li class="nav-item"><a class="nav-link" href="proveedores.html">Proveedores</a></li>
+        </ul>
+        <div class="user-badge">
+          <span class="avatar js-user-initials">--</span>
+          <div class="user-info d-none d-sm-flex">
+            <span class="user-name js-user-name">--</span>
+            <span class="user-role js-user-role">--</span>
+          </div>
+          <button id="btnLogout" class="btn-logout">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <section class="mb-4">
+      <p class="text-secondary mb-1">Registro de entradas y nuevos productos</p>
+      <h1 class="h3 fw-bold mb-0">Ingresar <span class="text-accent">Stock</span></h1>
+    </section>
+
+    <div class="row g-4">
+
+      <!-- Ingreso a producto existente -->
+      <section class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header">Ingresar a producto existente</div>
+          <div class="card-body">
+            <form id="restockForm">
+              <div class="mb-3">
+                <label for="restockProduct" class="form-label">Producto</label>
+                <select id="restockProduct" class="form-select" required></select>
+              </div>
+              <div class="row g-3">
+                <div class="col-6">
+                  <label for="restockQty" class="form-label">Cantidad (unidades)</label>
+                  <input type="number" id="restockQty" class="form-control" min="1" value="1" required>
+                  <div class="form-text text-secondary" id="restockCajas"></div>
+                </div>
+                <div class="col-6">
+                  <label for="restockDest" class="form-label">Destino</label>
+                  <select id="restockDest" class="form-select" required></select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-accent w-100 mt-4">Registrar ingreso</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Crear producto nuevo -->
+      <section class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header">Crear producto nuevo</div>
+          <div class="card-body">
+            <form id="newProductForm">
+              <div class="mb-3">
+                <label for="newName" class="form-label">Nombre</label>
+                <input type="text" id="newName" class="form-control" placeholder="Ej: Proteína Whey 1kg" required>
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-6">
+                  <label for="newSku" class="form-label">SKU</label>
+                  <input type="text" id="newSku" class="form-control" placeholder="BG-SUP-100" required>
+                </div>
+                <div class="col-6">
+                  <label for="newCategory" class="form-label">Categoría</label>
+                  <select id="newCategory" class="form-select" required></select>
+                </div>
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-6">
+                  <label for="newPrice" class="form-label">Precio (CLP)</label>
+                  <input type="number" id="newPrice" class="form-control" min="0" placeholder="19990" required>
+                </div>
+                <div class="col-6">
+                  <label for="newBoxUnits" class="form-label">Un. por caja (opcional)</label>
+                  <input type="number" id="newBoxUnits" class="form-control" min="0" placeholder="Ej: 24">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="newDesc" class="form-label">Descripción</label>
+                <textarea id="newDesc" class="form-control" rows="2" placeholder="Breve descripción del producto"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="newImage" class="form-label">Imagen (URL, opcional)</label>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="thumb" id="newPreview"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 9.4L7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg></span>
+                  <input type="url" id="newImage" class="form-control" placeholder="https://...">
+                </div>
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-6">
+                  <label for="newQty" class="form-label">Stock inicial</label>
+                  <input type="number" id="newQty" class="form-control" min="0" value="0" required>
+                </div>
+                <div class="col-6">
+                  <label for="newDest" class="form-label">Destino</label>
+                  <select id="newDest" class="form-select" required></select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-accent w-100">Agregar al catálogo</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="app-footer text-center mt-4">
+      BioGymStore — Sistema interno de gestión de stock · Uso exclusivo del personal autorizado
+    </footer>
+  </main>
+
+  <script src="vendor/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/ingreso.js"></script>
+</body>
+</html>

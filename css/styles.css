@@ -1,0 +1,362 @@
+/* ============================================================
+   BioGymStore — styles.css
+   Tema visual propio (oscuro + amarillo BioGym), copiado del
+   diseño original del proyecto.
+   ORDEN DE CARGA: Bootstrap 5 (CDN) > este archivo.
+   Si el CDN no carga (sin internet), el sitio se ve igual
+   gracias a los estilos propios + el respaldo ".no-bs".
+   ============================================================ */
+
+:root {
+  --bg: #0d0d0d;
+  --surface: #121212;
+  --surface-2: #1a1a1a;
+  --surface-3: #242424;
+  --border: #262626;
+  --border-2: #333333;
+  --accent: #ffe600;
+  --accent-hover: #e6cf00;
+  --text: #ffffff;
+  --muted: #888888;
+  --muted-2: #a0a0a0;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --radius: 14px;
+  --radius-lg: 28px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* ---------- Base ---------- */
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+main { display: block; }
+img { max-width: 100%; }
+a { color: #ffe600; }
+a:hover { color: #e6cf00; }
+
+.text-accent { color: #ffe600 !important; }
+
+/* ---------- Iconos SVG propios ---------- */
+.icon { width: 1.15em; height: 1.15em; vertical-align: -0.18em; flex: 0 0 auto; }
+.action-icon .icon, .thumb .icon { width: 1.4rem; height: 1.4rem; vertical-align: middle; }
+
+/* ---------- Titulos de seccion ---------- */
+.section-title { font-size: .75rem; color: #a0a0a0; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+
+/* ---------- Badges de estado (estilo suave, diseno original) ---------- */
+.badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; line-height: 1.4; white-space: nowrap; }
+.badge-soft-success { background-color: rgba(34, 197, 94, .15); color: #22c55e; }
+.badge-soft-warning { background-color: rgba(245, 158, 11, .15); color: #f59e0b; }
+.badge-soft-danger { background-color: rgba(239, 68, 68, .15); color: #ef4444; }
+.badge-soft-secondary { background-color: rgba(136, 136, 136, .15); color: #aaaaaa; }
+
+/* ---------- SKU ---------- */
+.sku-code { font-family: "Courier New", monospace; color: #ffe600; font-weight: 600; font-size: .8rem; }
+
+/* ---------- Miniatura de producto ---------- */
+.thumb {
+  width: 40px; height: 40px; flex: 0 0 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background-color: #1a1a1a; border: 1px solid #262626;
+  border-radius: 10px; font-size: 1.25rem; overflow: hidden; color: #ffe600;
+}
+.thumb-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Footer ---------- */
+.app-footer { color: #666; font-size: .75rem; border-top: 1px solid #262626; padding: 1rem 0; margin-top: 2.5rem; }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0d0d0d; }
+::-webkit-scrollbar-thumb { background: #2e2e2e; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+
+/* === FIN PARTE 1 === */
+
+/* ============================================================
+   LOGO BIOGYMSTORE — COPIA EXACTA DEL DISEÑO ORIGINAL
+   ============================================================ */
+.biogym-logo { position: relative; display: inline-flex; align-items: flex-end; gap: 4px; padding: 4px 6px; user-select: none; }
+.biogym-logo .yellow-bar { position: absolute; background-color: #ffe600; transform: skewX(20deg); border-radius: 1px; z-index: 1; }
+.biogym-logo::before {
+  content: ""; position: absolute; top: 11px; left: 8px; width: 14px; height: 20px;
+  background-color: #121212; z-index: 2;
+}
+.biogym-logo .brand-text { position: relative; z-index: 3; color: #ffffff; font-weight: 900; letter-spacing: -1px; line-height: 1; }
+.biogym-logo .badge-store { position: relative; z-index: 3; background-color: #ffe600; color: #000000; font-weight: 800; padding: 1px 5px; border-radius: 4px; text-transform: lowercase; line-height: 1; margin-bottom: 2px; }
+.biogym-logo.logo-lg .brand-text { font-size: 34px; }
+.biogym-logo.logo-lg .badge-store { font-size: 13px; }
+.biogym-logo.logo-lg .yellow-bar { left: 10px; top: 0px; width: 14px; height: 42px; }
+
+/* Logo oficial en imagen PNG (navbar y login) */
+.brand-logo-img { height: 40px; width: auto; display: block; }
+.brand-logo-img.login-logo { height: 74px; margin: 0 auto; }
+
+/* ============================================================
+   VISTA 1: LOGIN — COPIA EXACTA DEL DISEÑO ORIGINAL
+   ============================================================ */
+.login-wrap {
+  width: 100%; min-height: 100vh;
+  display: flex; justify-content: center; align-items: center;
+  padding: 20px;
+}
+.app-container {
+  width: 100%; max-width: 380px;
+  background-color: #121212;
+  border: 1px solid #262626;
+  border-radius: 28px;
+  padding: 40px 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .85);
+  display: flex; flex-direction: column; align-items: center;
+}
+.brand { text-align: center; margin-bottom: 24px; }
+.logo-container { display: flex; justify-content: center; align-items: center; margin-bottom: 8px; }
+.brand-subtitle { font-size: 11px; color: #a0a0a0; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; margin: 6px 0 0 0; }
+
+.restricted-notice {
+  background-color: rgba(255, 230, 0, .08);
+  border: 1px solid rgba(255, 230, 0, .3);
+  color: #ffe600; font-size: 12px; font-weight: 600;
+  padding: 10px 16px; border-radius: 12px;
+  width: 100%; text-align: center; margin-bottom: 24px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.restricted-notice .icon { width: 1.2em; height: 1.2em; }
+
+#loginForm { width: 100%; display: flex; flex-direction: column; gap: 16px; }
+.input-group { display: flex; flex-direction: column; gap: 6px; }
+.input-group label { font-size: 11px; font-weight: 700; color: #a0a0a0; letter-spacing: .8px; }
+.input-group input {
+  background-color: #242424; border: 1px solid #333333; border-radius: 10px;
+  padding: 14px 16px; color: #ffffff; font-size: 14px; outline: none; width: 100%;
+}
+.input-group input:focus { border-color: #ffe600; background-color: #2a2a2a; }
+.btn-submit {
+  margin-top: 8px; background-color: #ffe600; color: #000000;
+  border: none; border-radius: 10px; padding: 14px;
+  font-size: 15px; font-weight: 700; cursor: pointer; width: 100%;
+}
+.btn-submit:hover { background-color: #e6cf00; }
+.forgot-password { margin-top: 24px; text-align: center; }
+.forgot-password a { font-size: 12px; color: #888888; text-decoration: none; }
+.forgot-password a:hover { color: #ffe600; }
+
+/* ============================================================
+   NAVBAR — DISEÑO ORIGINAL + COMPONENTE BOOTSTRAP
+   ============================================================ */
+.navbar { background-color: #121212; border-bottom: 1px solid #262626; }
+.navbar .nav-link { color: #9a9a9a; font-weight: 600; font-size: .9rem; }
+.navbar .nav-link:hover { color: #ffffff; }
+.navbar .nav-link.active { color: #ffe600; }
+
+.user-badge { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 36px; height: 36px; background-color: #ffe600; color: #000000; font-weight: 800; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: .85rem; }
+.user-info { display: flex; flex-direction: column; line-height: 1.2; }
+.user-name { font-size: 13px; font-weight: 700; color: #ffffff; }
+.user-role { font-size: 11px; color: #888888; }
+.btn-logout { background-color: transparent; border: 1px solid #333333; color: #a0a0a0; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; margin-left: 12px; display: inline-flex; align-items: center; gap: 6px; }
+.btn-logout:hover { border-color: #ffe600; color: #ffe600; }
+
+/* === FIN PARTE 2 === */
+
+/* ============================================================
+   DASHBOARD — COPIA DEL DISEÑO ORIGINAL
+   ============================================================ */
+.dashboard-header { display: flex; justify-content: space-between; align-items: center; }
+.greeting-sub { font-size: 14px; color: #888888; font-weight: 500; margin-bottom: 4px; }
+.greeting-title { font-size: 28px; font-weight: 800; }
+
+.btn-primary, .btn-accent {
+  background-color: #ffe600; color: #000000;
+  border: none; border-radius: 10px; padding: 12px 20px;
+  font-weight: 700; font-size: 14px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  text-decoration: none;
+}
+.btn-primary:hover, .btn-accent:hover { background-color: #e6cf00; color: #000; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.kpi-card, .action-card, .alert-card {
+  background-color: #121212;
+  border: 1px solid #262626;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+}
+.kpi-card { flex-direction: column; gap: 4px; }
+.kpi-label, .card-label { font-size: 11px; color: #888888; font-weight: 700; text-transform: uppercase; }
+.kpi-value, .card-value { font-size: 26px; font-weight: 800; }
+.kpi-sub, .card-sub { font-size: 12px; color: #666666; }
+
+.section-block { margin-bottom: 28px; }
+.access-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.action-card { flex-direction: column; gap: 8px; cursor: pointer; transition: border-color .2s; text-decoration: none; }
+.action-card:hover { border-color: #ffe600; }
+.action-icon { font-size: 22px; color: #ffe600; }
+.action-title { font-size: 13px; font-weight: 700; color: #ffffff; }
+.action-sub { font-size: 11px; color: #888888; }
+
+/* ---------- Tarjetas genéricas (resto de páginas) ---------- */
+.card {
+  background-color: #121212;
+  border: 1px solid #262626;
+  border-radius: 14px;
+}
+.card-header { background-color: transparent; border-bottom: 1px solid #262626; font-weight: 700; font-size: .9rem; padding: .8rem 1rem; }
+.card-body { padding: 1rem; }
+
+/* ---------- Alertas de stock ---------- */
+.alerts-list { display: flex; flex-direction: column; gap: 12px; }
+.alert-item, .alert-card { flex-direction: row; align-items: center; gap: 16px; }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 10px; }
+.status-dot.red { background-color: #ef4444; }
+.status-dot.yellow { background-color: #ffe600; }
+.alert-info { display: flex; flex-direction: column; gap: 2px; }
+.alert-title { font-size: 13px; font-weight: 700; color: #ffffff; }
+.alert-sub { font-size: 12px; color: #888888; }
+.scroll-y { max-height: 340px; overflow-y: auto; }
+
+/* ---------- Formularios ---------- */
+.form-label { font-size: 11px; font-weight: 700; color: #a0a0a0; letter-spacing: .8px; text-transform: uppercase; display: block; margin-bottom: .4rem; }
+.form-control, .form-select {
+  background-color: #242424; border: 1px solid #333333; color: #ffffff;
+  border-radius: 10px; padding: .65rem .9rem; font-size: .9rem; width: 100%;
+}
+.form-control:focus, .form-select:focus {
+  background-color: #2a2a2a; border-color: #ffe600; color: #fff; outline: none;
+  box-shadow: 0 0 0 .2rem rgba(255, 230, 0, .25);
+}
+.form-control::placeholder { color: #666; }
+.form-text, .form-check-label { color: #666; font-size: .8rem; }
+textarea.form-control { resize: vertical; }
+
+/* ---------- Tablas ---------- */
+.table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; color: #ffffff; }
+.table thead th { color: #888888; font-weight: 600; padding: 12px 16px; border-bottom: 1px solid #262626; text-transform: uppercase; font-size: 11px; background: transparent; }
+.table tbody td { padding: 16px; border-bottom: 1px solid #1f1f1f; vertical-align: middle; }
+.table-responsive { overflow-x: auto; }
+
+/* === FIN PARTE 3 === */
+
+/* ============================================================
+   GRID Y UTILIDADES (réplica mínima para uso con/sin Bootstrap)
+   Con Bootstrap CDN estas clases las provee Bootstrap; aquí
+   se garantizan para que nada se rompa si el CDN no carga.
+   ============================================================ */
+body.no-bs .container { max-width: 1200px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
+body.no-bs .row { display: flex; flex-wrap: wrap; margin-left: -.5rem; margin-right: -.5rem; }
+body.no-bs .row > [class*="col"] { padding-left: .5rem; padding-right: .5rem; }
+body.no-bs .col, body.no-bs .col-md-4, body.no-bs .col-md-6, body.no-bs .col-md-8, body.no-bs .col-lg-4, body.no-bs .col-lg-5, body.no-bs .col-lg-6, body.no-bs .col-lg-7, body.no-bs .col-lg-8, body.no-bs .col-6, body.no-bs .col-xl-3 { flex: 1 1 0; min-width: 0; }
+@media (min-width: 768px) {
+  body.no-bs .col-md-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
+  body.no-bs .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+  body.no-bs .col-md-8 { flex: 0 0 66.6666%; max-width: 66.6666%; }
+}
+@media (min-width: 992px) {
+  body.no-bs .col-lg-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
+  body.no-bs .col-lg-5 { flex: 0 0 41.6666%; max-width: 41.6666%; }
+  body.no-bs .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+  body.no-bs .col-lg-7 { flex: 0 0 58.3333%; max-width: 58.3333%; }
+  body.no-bs .col-lg-8 { flex: 0 0 66.6666%; max-width: 66.6666%; }
+}
+@media (min-width: 1200px) {
+  body.no-bs .col-xl-3 { flex: 0 0 25%; max-width: 25%; }
+}
+body.no-bs .col-6 { flex: 0 0 50%; max-width: 50%; }
+body.no-bs .row-cols-1 > * { flex: 0 0 100%; max-width: 100%; }
+@media (min-width: 576px) {
+  body.no-bs .row-cols-sm-2 > * { flex: 0 0 50%; max-width: 50%; }
+  body.no-bs .d-sm-flex { display: flex !important; }
+}
+@media (min-width: 768px) {
+  body.no-bs .row-cols-md-2 > * { flex: 0 0 50%; max-width: 50%; }
+  body.no-bs .p-md-4 { padding: 1.5rem; }
+}
+@media (min-width: 1200px) {
+  body.no-bs .row-cols-xl-4 > * { flex: 0 0 25%; max-width: 25%; }
+}
+
+body.no-bs .d-flex { display: flex; } body.no-bs .d-none { display: none; }
+body.no-bs .flex-column { flex-direction: column; }
+body.no-bs .flex-wrap { flex-wrap: wrap; }
+body.no-bs .align-items-center { align-items: center; }
+body.no-bs .align-items-end { align-items: flex-end; }
+body.no-bs .justify-content-center { justify-content: center; }
+body.no-bs .justify-content-between { justify-content: space-between; }
+body.no-bs .gap-2 { gap: .5rem; } body.no-bs .gap-3 { gap: 1rem; } body.no-bs .gap-4 { gap: 1.5rem; }
+body.no-bs .mb-0 { margin-bottom: 0; } body.no-bs .mb-1 { margin-bottom: .25rem; }
+body.no-bs .mb-2 { margin-bottom: .5rem; } body.no-bs .mb-3 { margin-bottom: 1rem; } body.no-bs .mb-4 { margin-bottom: 1.5rem; }
+body.no-bs .mt-2 { margin-top: .5rem; } body.no-bs .mt-3 { margin-top: 1rem; } body.no-bs .mt-4 { margin-top: 1.5rem; }
+body.no-bs .p-2 { padding: .5rem; } body.no-bs .p-3 { padding: 1rem; }
+body.no-bs .py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+body.no-bs .py-0 { padding-top: 0; padding-bottom: 0; }
+body.no-bs .px-3 { padding-left: 1rem; padding-right: 1rem; }
+body.no-bs .w-100 { width: 100%; } body.no-bs .h-100 { height: 100%; }
+body.no-bs .text-center { text-align: center; } body.no-bs .text-end { text-align: right; }
+body.no-bs .text-secondary { color: #888 !important; }
+body.no-bs .small, body.no-bs small { font-size: .85em; }
+body.no-bs .fw-bold, body.no-bs strong { font-weight: 700; }
+body.no-bs .me-2 { margin-right: .5rem; } body.no-bs .m-auto { margin: auto; }
+body.no-bs .me-auto { margin-right: auto; }
+body.no-bs .align-self-start { align-self: flex-start; }
+body.no-bs .flex-grow-1 { flex-grow: 1; }
+body.no-bs .lh-1 { line-height: 1; }
+body.no-bs .g-2 > [class*="col"], body.no-bs .g-3 > [class*="col"], body.no-bs .g-4 > [class*="col"] { padding: .5rem; }
+
+/* === FIN PARTE 4A === */
+
+/* Navbar colapsable + botones sin Bootstrap JS */
+body.no-bs .navbar { display: flex; flex-wrap: wrap; align-items: center; padding: .6rem 1rem; }
+body.no-bs .navbar > .container { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
+body.no-bs .navbar-brand { color: #fff; text-decoration: none; margin-right: auto; display: inline-flex; align-items: center; }
+body.no-bs .navbar-toggler { display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 1px solid #333; border-radius: 8px; padding: .35rem .55rem; cursor: pointer; color: #fff; }
+body.no-bs .navbar-toggler .icon { width: 1.5rem; height: 1.5rem; }
+body.no-bs .navbar-nav { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .1rem; flex-basis: 100%; }
+body.no-bs .navbar-nav .nav-link { text-decoration: none; padding: .4rem .5rem; display: block; border-radius: 8px; }
+body.no-bs .collapse:not(.show) { display: none; }
+@media (min-width: 992px) {
+  body.no-bs .navbar-toggler { display: none; }
+  body.no-bs .navbar-nav { flex-direction: row; flex-basis: auto; gap: .5rem; }
+  body.no-bs .navbar .collapse { display: flex !important; flex-basis: auto; flex-grow: 1; }
+}
+body.no-bs .btn-sm { padding: .4rem .7rem; font-size: .8rem; }
+body.no-bs .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; cursor: pointer; }
+body.no-bs .btn-outline-light, body.no-bs .btn-outline-secondary, body.no-bs .btn-outline-danger {
+  background: transparent; border: 1px solid #333; color: #a0a0a0;
+  border-radius: 8px; font-weight: 600; cursor: pointer;
+}
+body.no-bs .btn-outline-light:hover, body.no-bs .btn-outline-secondary:hover { border-color: #ffe600; color: #ffe600; }
+body.no-bs .btn-outline-danger { border-color: #5b2222; color: #ef4444; }
+body.no-bs .btn-outline-danger:hover { background: rgba(239,68,68,.12); }
+body.no-bs .btn:disabled { opacity: .5; cursor: not-allowed; }
+body.no-bs .list-group { list-style: none; margin: 0; padding: 0; }
+body.no-bs .list-group-item {
+  padding: .6rem .9rem; border: 1px solid #262626; border-radius: 8px; margin-bottom: .4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: transparent; color: #fff;
+}
+
+/* Toasts sin Bootstrap JS */
+#toastHost { position: fixed; top: 0; right: 0; padding: 1rem; z-index: 2000; display: flex; flex-direction: column; gap: .5rem; }
+.toast {
+  display: flex; align-items: center; background: #1a1a1a; color: #fff;
+  border: 1px solid #262626; border-radius: 10px; padding: .6rem .8rem;
+  max-width: 340px; box-shadow: 0 8px 24px rgba(0,0,0,.6);
+}
+.toast.show { display: flex; }
+.toast-body { font-size: .85rem; flex: 1; padding-right: .5rem; }
+.toast .btn-close { background: transparent; border: none; color: #fff; cursor: pointer; font-size: 1rem; line-height: 1; padding: .25rem; }
+.toast .btn-close::after { content: "x"; font-weight: 700; }
+.text-bg-success { border-color: rgba(34,197,94,.5) !important; }
+.text-bg-danger { border-color: rgba(239,68,68,.5) !important; }
+
+
+

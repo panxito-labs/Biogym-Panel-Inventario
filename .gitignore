@@ -1,0 +1,23 @@
+# BioGymStore — archivos que NO deben subir a GitHub
+# (temporales, respaldos y datos locales del navegador)
+
+# Temporales y capturas
+_tmp/
+_shot*.png
+*.log
+*.pid
+
+# Respaldos de editores y del SO
+*~
+*.bak
+*.orig
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencias (si se agregan en el futuro)
+node_modules/
+
+# Datos locales (nunca existen como archivo, pero por seguridad)
+*.sqlite
+*.sqlite3
